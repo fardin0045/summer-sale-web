@@ -7,6 +7,8 @@
     <!-- Daisy Ui -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- font Awesome -->
+    <script src="https://kit.fontawesome.com/0b4e722849.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="w-full bg-[#F9F6E2]">
@@ -24,7 +26,7 @@
     <main class="w-9/12 mx-auto mt-24 mb-24" >
        <section>
         <h2 class="text-3xl font-bold pb-5">KitchenWare </h2>
-        <div class="flex flex-1 justify-between">
+        <div class="flex flex-1 md:flex-col lg:flex-row justify-between gap-10">
             <!-- KitchenWare Container -->
             <div class="grid gird-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
@@ -46,8 +48,8 @@
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100" />
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100" />
                           </div>
-                      <h2 class="card-title text">K. Accessories</h2>
-                      <p  class="text-gray-400 font-medium">30.00 TK</p>
+                      <h2 id="item1-name" class="card-title text">K. Accessories</h2>
+                      <p id="item1-price" class="text-gray-400 font-medium">30.00 TK</p>
                       <div class="card-actions">
                         <button id="card-1" class="btn text-white  bg-[#E527B2]">Add to Cart</button>
                       </div>
@@ -70,8 +72,12 @@
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100" />
                             
                           </div>
-                      <h2 class="card-title text">Kitchen Accessories</h2>
-                      <p  class="text-gray-400 font-medium">30.00 TK</p>
+                      <h2 id="item2-name" class="card-title text">Kitchen Accessories</h2>
+                     
+                      <p id="item2-price" class="text-gray-400 font-medium">70.00 TK</p>
+                      <div class="card-actions">
+                        <button id="card-2" class="btn text-white  bg-[#E527B2]">Add to Cart</button>
+                      </div>
                     </div>
                   </div>
                 <!-- Card 3 -->
@@ -91,15 +97,63 @@
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100" />
                             
                           </div>
-                      <h2 class="card-title text">Cooker</h2>
-                      <p  class="text-gray-400 font-medium">30.00 TK</p>
+                      <h2 id="item3-name" class="card-title text">Cooker</h2>
+                      <p id="item3-price" class="text-gray-400 font-medium">90.00 TK</p>
+                      <div class="card-actions">
+                        <button id="card-3" class="btn text-white  bg-[#E527B2]">Add to Cart</button>
+                      </div>
                     </div>
                   </div>
             </div>
             <div>
-                <h2>Home Coupon ?</h2>
+                <!-- Coupon Part -->
+                <div class="card bg-base-100 w-96 shadow-xl">
+                    <div class="card-body "id="coupon-container" style="display: none;">
+                      
+                        <div>
+                        <h2 class="card-title">Have Coupon ?</h2>
+                         <input id="coupon-code" type="text" class="rounded-md bg-gray-100 pl-2 h-11 border-y-2 border-l-2" placeholder="Coupon Code">
+                        <button id="apply-coupon" class="btn ml-0 text-white  bg-[#E527B2]">Apply</button>
+                        </div>
+                    </div>
+                  </div>
+                <div  class="card bg-base-100 w-96 shadow-xl  ">
+                    <h2 class="text-center text-3xl space-x-3"><i class="fa-solid fa-cart-shopping pr-4"></i>Your Cart</h2>
+                    <div class="p-5 font-medium"  id="cart-field">
+                       
+                    </div>
+                    <!-- Price part -->
+                    <div class="p-5">
+                       
+                        <p class="font-medium" id="total-price"></p>
+                        <div id="price-container" style="display: none;">
+                            <p class="font-medium" id="discount-total"></p>
+                            <p class="font-medium" id="discount-price"></p>
+                        </div>
+                       
+                    </div>
+                    <div class="card-body items-center">
+                      <!--   <button id="purchase-btn" style="display:none;" class="btn ml-0 text-white  bg-[#E527B2]">Make Purchase</button> -->
+                         <!-- You can open the modal using ID.showModal() method -->
+                    <button id="purchase-btn" style="display:none;"  class="btn ml-0 text-white  bg-[#E527B2]" onclick="my_modal_4.showModal()">Make Purchase</button>
+                    <dialog id="my_modal_4" class="modal">
+                    <div class="modal-box items-center text-center">
+                        <img class="ml-36" src="images/congo.png" alt="">
+                        <h3 class="text-lg font-bold">Congratulations</h3>
+                        <p class="py-4">You Purchase the Product</p>
+                        <div class="modal-action">
+                        <form method="dialog ">
+                            <!-- if there is a button, it will close the modal -->
+                            <button class="btn text-white  items-center bg-[#E527B2] mr-48">Home</button>
+                           </form>
+                        </div>
+                    </div>
+                    </dialog>
+                    </div>
+                    </div>
             </div>
         </div>
+        
        </section>
        <section class="my-12">
         <h2 class="text-3xl font-bold pb-4">SportsWear</h2>
@@ -125,8 +179,11 @@
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100" />
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100" />
                           </div>
-                      <h2 class="card-title text">Sports Back Cap</h2>
-                      <p  class="text-gray-400 font-medium">49.00 TK</p>
+                      <h2 id="item4-name" class="card-title text">Sports Back Cap</h2>
+                      <p  id="item4-price" class="text-gray-400 font-medium">49.00 TK</p>
+                      <div class="card-actions">
+                        <button id="card-4" class="btn text-white  bg-[#E527B2]">Add to Cart</button>
+                      </div>
                     </div>
                   </div>
                 <!-- Card 2 -->
@@ -146,8 +203,11 @@
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100" />
                             
                           </div>
-                      <h2 class="card-title text">Full Jersey Set</h2>
-                      <p  class="text-gray-400 font-medium">69.00 TK</p>
+                      <h2 id="item5-name" class="card-title text">Full Jersey Set</h2>
+                      <p id="item5-price" class="text-gray-400 font-medium">69.00 TK</p>
+                      <div class="card-actions">
+                        <button id="card-5" class="btn text-white  bg-[#E527B2]">Add to Cart</button>
+                      </div>
                     </div>
                   </div>
                 <!-- Card 3 -->
@@ -167,8 +227,11 @@
                             <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-100" />
                             
                           </div>
-                      <h2 class="card-title text">Sports Cates</h2>
-                      <p  class="text-gray-400 font-medium">1230.00 TK</p>
+                      <h2 id="item6-name" class="card-title text">Sports Cates</h2>
+                      <p id="item6-price" class="text-gray-400 font-medium">1230.00 TK</p>
+                      <div class="card-actions">
+                        <button id="card-6" class="btn text-white  bg-[#E527B2]">Add to Cart</button>
+                      </div>
                     </div>
                   </div>
             </div>
@@ -177,6 +240,15 @@
             </div>
         </div>
        </section>
+       <div id="congrats-msg"  class="card bg-base-100  shadow-xl rounded-xl p-16 w-96" style="display: none;">
+            <img class="items-center ml-10" src="images/congo.png" alt="">
+        <div class="text-center space-y-5 ">
+            <h2 class="text-3xl font-bold ">Congratulations</h2>
+            <p>Your Purchase The Product</p>
+            <button class=" btn text-white  bg-[#E527B2]">Go Home</button>
+        </div>
+       </div>
+
     </main>
     <script src="js/shopping.js"></script>
 </body>
